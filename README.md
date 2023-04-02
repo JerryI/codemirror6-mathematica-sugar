@@ -1,5 +1,5 @@
 # Advanced Mathematica mode for CodeMirror 6
-This is basically a fork built the following repos
+This is basically a fork built from the following repos
 - [Legacy Modes](https://github.com/codemirror/legacy-modes) (Base)
 - [Markword](https://github.com/fuermosi777/markword) (Widget functions)
 
