@@ -15,6 +15,10 @@ This project is still in alpha stage
 
 ## Installation
 
+```
+npm i priceless-mathematica
+```
+
 Import all extensions as
 
 ```js
