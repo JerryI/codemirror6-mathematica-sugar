@@ -24,5 +24,6 @@
   "resolutions": {
     "@babel/preset-env": "7.13.8"
   },
-  "keywords": ["mathematica","wolfram","codemirror","editor","syntaxsugar"]
+  "keywords": ["mathematica","wolfram","codemirror","editor","syntaxsugar"],
+  "homepage": "https://github.com/JerryI/codemirror6-mathematica-sugar"
 }
