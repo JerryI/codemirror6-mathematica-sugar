@@ -1,5 +1,6 @@
 import { minimalSetup, EditorView } from "codemirror";
 
+import { keymap } from "@codemirror/view";
 
 import { wolframLanguage } from "./src/mathematica/mathematica";
 import { fractionsWidget } from "./src/sugar/fractions";
@@ -47,10 +48,13 @@ let editorCustomThemeCompact = EditorView.theme({
     'line-height': 'inherit',
     'overflow-x': 'overlay',
     'overflow-y': 'overlay',
-    'align-items': 'initial'
+    'align-items': 'initial',
+    'min-height': '3pt',
+    'min-width': '3pt'
   },
   ".cm-content": {
-    "padding": '0px 0'
+    "padding": '0px 0',
+    "overflow": 'overlay'
   }
 });
 
@@ -67,10 +71,21 @@ CM6Sqrt[CM6Fraction[Table[RandomInteger[5], {i,1,5}], 2]]
 let compactWLEditor = null;
 
 
-compactWLEditor = (p) =>
-  new EditorView({
+compactWLEditor = (p) => {
+  let editor = new EditorView({
     doc: p.doc,
     extensions: [
+      keymap.of([
+        { key: "Enter", preventDefault: true, run: function (editor, key) { 
+          return true;
+        } }
+      ]),  
+      keymap.of([
+        { key: "Shift-Enter", preventDefault: true, run: function (editor, key) { 
+          p.eval();
+          return true;
+        } }
+      ]),         
       minimalSetup,
       editorCustomThemeCompact,      
       wolframLanguage, 
@@ -87,13 +102,19 @@ compactWLEditor = (p) =>
         if (v.docChanged) {
           p.update(v.state.doc.toString());
         }
-      }),
+      })
     ],
     
     parent: p.parent
   });
+  
+  editor.viewState.state.config.eval = p.eval;
 
-new EditorView({
+
+  return editor;
+}
+
+let mainEditor = new EditorView({
   doc: doc,
   extensions: [
     minimalSetup,
@@ -111,3 +132,5 @@ new EditorView({
   ],
   parent: document.querySelector("#editor")
 });
+
+mainEditor.viewState.state.config.eval = function() {alert('eval')};

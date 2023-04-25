@@ -103,6 +103,9 @@ class Widget extends WidgetType {
         console.log('insert change');
         console.log(change);
         view.dispatch({changes: change});
+      },
+      eval: () => {
+        view.viewState.state.config.eval();
       }
     });
 

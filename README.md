@@ -7,6 +7,7 @@ with added syntax sugar, autocomplete, editable fractions and other 2D input ele
 ![](imgs/test.png)
 
 This project is still in alpha stage
+Feel free to contribute
 
 ## Key features
 - highlighting and autocomplete for `7000` built-in symbols from Mathematica 13

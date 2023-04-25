@@ -54845,6 +54845,9 @@ var Widget = /*#__PURE__*/function (_WidgetType) {
           view.dispatch({
             changes: change
           });
+        },
+        eval: function _eval() {
+          view.viewState.state.config.eval();
         }
       });
       this.subEditor({
@@ -54858,6 +54861,9 @@ var Widget = /*#__PURE__*/function (_WidgetType) {
           view.dispatch({
             changes: change
           });
+        },
+        eval: function _eval() {
+          view.viewState.state.config.eval();
         }
       });
       return span;
@@ -55256,6 +55262,9 @@ var Widget = /*#__PURE__*/function (_WidgetType) {
           view.dispatch({
             changes: change
           });
+        },
+        eval: function _eval() {
+          view.viewState.state.config.eval();
         }
       });
       var sub = document.createElement("sup");
@@ -55468,6 +55477,9 @@ var Widget = /*#__PURE__*/function (_WidgetType) {
           view.dispatch({
             changes: change
           });
+        },
+        eval: function _eval() {
+          view.viewState.state.config.eval();
         }
       });
       span.appendChild(head);
@@ -56080,6 +56092,7 @@ function rainbowBrackets() {
 "use strict";
 
 var _codemirror = require("codemirror");
+var _view = require("@codemirror/view");
 var _mathematica = require("./src/mathematica/mathematica");
 var _fractions = require("./src/sugar/fractions");
 var _subscript = require("./src/sugar/subscript");
@@ -56121,31 +56134,52 @@ var editorCustomThemeCompact = _codemirror.EditorView.theme({
     'line-height': 'inherit',
     'overflow-x': 'overlay',
     'overflow-y': 'overlay',
-    'align-items': 'initial'
+    'align-items': 'initial',
+    'min-height': '3pt',
+    'min-width': '3pt'
   },
   ".cm-content": {
-    "padding": '0px 0'
+    "padding": '0px 0',
+    "overflow": 'overlay'
   }
 });
 var doc = "\nCM6Sqrt[CM6Fraction[Table[RandomInteger[5], {i,1,5}], 2]]\n\n{0,CM6Sqrt[2],CM6Sqrt[CM6Fraction[3, 2]],CM6Sqrt[CM6Fraction[5, 2]],1}\n\n(CM6Grid[{{0, 1}, {1, 0}}, RowSpacings -> 1, ColumnSpacings -> 1, RowAlignments -> Baseline, ColumnAlignments -> Center])\n";
 var _compactWLEditor = null;
 _compactWLEditor = function compactWLEditor(p) {
-  return new _codemirror.EditorView({
+  var editor = new _codemirror.EditorView({
     doc: p.doc,
-    extensions: [_codemirror.minimalSetup, editorCustomThemeCompact, _mathematica.wolframLanguage, (0, _fractions.fractionsWidget)(_compactWLEditor), (0, _subscript.subscriptWidget)(_compactWLEditor), (0, _supscript.supscriptWidget)(_compactWLEditor), (0, _matrix.matrixWidget)(_compactWLEditor), (0, _squareroot.squareRootWidget)(_compactWLEditor), (0, _language.bracketMatching)(), (0, _rainbowbrackets.default)(), _misc.Greekholder, _misc.Arrowholder, _codemirror.EditorView.updateListener.of(function (v) {
+    extensions: [_view.keymap.of([{
+      key: "Enter",
+      preventDefault: true,
+      run: function run(editor, key) {
+        return true;
+      }
+    }]), _view.keymap.of([{
+      key: "Shift-Enter",
+      preventDefault: true,
+      run: function run(editor, key) {
+        p.eval();
+        return true;
+      }
+    }]), _codemirror.minimalSetup, editorCustomThemeCompact, _mathematica.wolframLanguage, (0, _fractions.fractionsWidget)(_compactWLEditor), (0, _subscript.subscriptWidget)(_compactWLEditor), (0, _supscript.supscriptWidget)(_compactWLEditor), (0, _matrix.matrixWidget)(_compactWLEditor), (0, _squareroot.squareRootWidget)(_compactWLEditor), (0, _language.bracketMatching)(), (0, _rainbowbrackets.default)(), _misc.Greekholder, _misc.Arrowholder, _codemirror.EditorView.updateListener.of(function (v) {
       if (v.docChanged) {
         p.update(v.state.doc.toString());
       }
     })],
     parent: p.parent
   });
+  editor.viewState.state.config.eval = p.eval;
+  return editor;
 };
-new _codemirror.EditorView({
+var mainEditor = new _codemirror.EditorView({
   doc: doc,
   extensions: [_codemirror.minimalSetup, editorCustomTheme, _mathematica.wolframLanguage, (0, _fractions.fractionsWidget)(_compactWLEditor), (0, _subscript.subscriptWidget)(_compactWLEditor), (0, _supscript.supscriptWidget)(_compactWLEditor), (0, _matrix.matrixWidget)(_compactWLEditor), (0, _squareroot.squareRootWidget)(_compactWLEditor), (0, _language.bracketMatching)(), (0, _rainbowbrackets.default)(), _misc.Greekholder, _misc.Arrowholder],
   parent: document.querySelector("#editor")
 });
-},{"codemirror":"node_modules/codemirror/dist/index.js","./src/mathematica/mathematica":"src/mathematica/mathematica.js","./src/sugar/fractions":"src/sugar/fractions.js","./src/sugar/subscript":"src/sugar/subscript.js","./src/sugar/supscript":"src/sugar/supscript.js","./src/sugar/squareroot":"src/sugar/squareroot.js","./src/sugar/matrix":"src/sugar/matrix.js","./src/sugar/misc":"src/sugar/misc.js","@codemirror/language":"node_modules/@codemirror/language/dist/index.js","rainbowbrackets":"node_modules/rainbowbrackets/rainbowBrackets.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+mainEditor.viewState.state.config.eval = function () {
+  alert('eval');
+};
+},{"codemirror":"node_modules/codemirror/dist/index.js","@codemirror/view":"node_modules/@codemirror/view/dist/index.js","./src/mathematica/mathematica":"src/mathematica/mathematica.js","./src/sugar/fractions":"src/sugar/fractions.js","./src/sugar/subscript":"src/sugar/subscript.js","./src/sugar/supscript":"src/sugar/supscript.js","./src/sugar/squareroot":"src/sugar/squareroot.js","./src/sugar/matrix":"src/sugar/matrix.js","./src/sugar/misc":"src/sugar/misc.js","@codemirror/language":"node_modules/@codemirror/language/dist/index.js","rainbowbrackets":"node_modules/rainbowbrackets/rainbowBrackets.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -56170,7 +56204,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51209" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49250" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
