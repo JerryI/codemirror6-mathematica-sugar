@@ -34,6 +34,13 @@ import { matrixWidget } from "priceless-mathematica/src/sugar/matrix";
 
 and CSS
 ```css
+  span .cm-scroller {
+    overflow-y: scroll;
+  }
+  span .cm-scroller::-webkit-scrollbar {
+    width: 4px;
+  }
+  
   .subscript-tail {
     display: inline-block;
   }
