@@ -1,6 +1,6 @@
 {
   "name": "priceless-mathematica",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Advanced Mathematica mode for CodeMirror 6",
   "main": "index.html",
   "scripts": {

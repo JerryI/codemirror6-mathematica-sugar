@@ -13,6 +13,14 @@ import { keymap } from "@codemirror/view";
  
 import { EditorSelection } from "@codemirror/state";
 
+import { Balanced } from "node-balanced";
+
+const validator = new Balanced({
+  open: ['{', '[', '('],
+  close: ['}', ']', ')'],
+  balance: true
+});
+
 var subEditor; 
 
 export function supscriptWidget(view) {
@@ -103,6 +111,9 @@ class Widget extends WidgetType {
       doc: args[0],
       parent: head,
       update: (upd) => {
+        const valid = validator.matchContentsInBetweenBrackets(upd, []);
+        if (!valid) return;
+
         this.visibleValue.args[0] = upd;
         const change = recreateString(this.visibleValue.args);
         console.log('insert change');
@@ -121,6 +132,9 @@ class Widget extends WidgetType {
       doc: args[1],
       parent: sub,
       update: (upd) => {
+        const valid = validator.matchContentsInBetweenBrackets(upd, []);
+        if (!valid) return;
+
         this.visibleValue.args[1] = upd;
         const change = recreateString(this.visibleValue.args);
         console.log('insert change');

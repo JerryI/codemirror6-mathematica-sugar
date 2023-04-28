@@ -15,6 +15,14 @@ import { EditorSelection } from "@codemirror/state";
 
 var subEditor; 
 
+import { Balanced } from "node-balanced";
+
+const validator = new Balanced({
+  open: ['{', '[', '('],
+  close: ['}', ']', ')'],
+  balance: true
+});
+
 export function fractionsWidget(view) {
   subEditor = view;
   return [
@@ -114,6 +122,9 @@ class Widget extends WidgetType {
       doc: args[0],
       parent: enumenator,
       update: (upd) => {
+        const valid = validator.matchContentsInBetweenBrackets(upd, []);
+        if (!valid) return;
+
         this.visibleValue.args[0] = upd;
         const change = recreateString(this.visibleValue.args);
         console.log('insert change');
@@ -129,6 +140,9 @@ class Widget extends WidgetType {
       doc: args[1],
       parent: denumenator,
       update: (upd) => {
+        const valid = validator.matchContentsInBetweenBrackets(upd, []);
+        if (!valid) return;
+
         this.visibleValue.args[1] = upd;
         const change = recreateString(this.visibleValue.args);
         console.log('insert change');

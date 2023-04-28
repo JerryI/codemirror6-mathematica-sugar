@@ -15,6 +15,14 @@ import { keymap } from "@codemirror/view";
  
 import { EditorSelection } from "@codemirror/state";
 
+import { Balanced } from "node-balanced";
+
+const validator = new Balanced({
+  open: ['{', '[', '('],
+  close: ['}', ']', ')'],
+  balance: true
+});
+
 var subEditor; 
 
 export function matrixWidget(view) {
@@ -111,6 +119,9 @@ class Widget extends WidgetType {
           doc: cols[j],
           parent: td,
           update: (upd) => {
+            const valid = validator.matchContentsInBetweenBrackets(upd, []);
+            if (!valid) return;
+
             this.args[i][j] = upd;
 
             const change = recreateString(this.args);
