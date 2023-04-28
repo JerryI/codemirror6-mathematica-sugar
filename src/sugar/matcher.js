@@ -182,10 +182,17 @@ var BallancedMatchDecorator = /** @class */ (function () {
                     return ranges_1.push(deco.range(from, to));
                 };
                 if (fromLine == toLine) {
-                    console.error("FUCK this is an exeption");
+                    console.error("It migtht not works, since it did not implement it correctly");
                     /*this.regexp.lastIndex = start - fromLine.from
                     while ((m = this.regexp.exec(fromLine.text)) && m.index < end - fromLine.from)
                       this.addMatch(m, view, m.index + fromLine.from, add)*/
+
+                    /*iterMatches(view.state.doc, this.regexp, from, to, function (from, m) {
+                        return _this.addMatch(m, view, from, add);
+                    });  */
+                    iterMatches(view.state.doc, this_1.regexp, start_1, end_1, function (from, m) {
+                        return _this.addMatch(m, view, from, add_1);
+                    });
                 }
                 else {
                     iterMatches(view.state.doc, this_1.regexp, start_1, end_1, function (from, m) {
