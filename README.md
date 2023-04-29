@@ -9,10 +9,22 @@ with added syntax sugar, autocomplete, editable fractions and other 2D input ele
 This project is still in alpha stage
 Feel free to contribute
 
+*works buggy on Safari*
+*works great on Firefox/Chrome*
+
 ## Key features
 - highlighting and autocomplete for `7000` built-in symbols from Mathematica 13
 - greek alphabet (use `ESC` + `name`)
 - special syntax sugar for fractions, square roots and etc
+
+## Run an demo
+
+```bash
+git clone https://github.com/JerryI/codemirror6-mathematica-sugar
+cd codemirror6-mathematica-sugar
+npm i
+npm start
+```
 
 ## Installation
 
@@ -148,3 +160,9 @@ and if you want back transformation
 - `Ctrl+-` - subscript
 - `Ctrl+6` - superscript
 - `Ctrl+m` - empty matrix
+
+
+
+# Acknowledges
+- [Marijn Haverbeke](https://github.com/marijnh)
+- [Hao](https://github.com/fuermosi777)
