@@ -222,6 +222,12 @@ const placeholder = ViewPlugin.fromClass(
       this.placeholder = matcher(this.disposable, view).createDeco(view);
     }
     update(update) {
+      if (update.docChanged || update.selectionSet || update.viewportChanged) {
+        console.log('check the cursor!');
+        console.log(update);
+        console.log(this.placeholder);
+      }
+
       this.placeholder = matcher(this.disposable, update).updateDeco(
         update,
         this.placeholder

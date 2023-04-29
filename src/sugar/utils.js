@@ -1,4 +1,5 @@
 import { WidgetType } from "@codemirror/view";
+//credits https://github.com/fuermosi777
 
 /**
  * Check if cursor is inside the widget.

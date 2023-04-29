@@ -7,6 +7,7 @@ import {
 } from "@codemirror/view";
 import { isCursorInside } from "./utils";
 
+//credits https://github.com/fuermosi777
 
 export const cellTypesHighlight = ViewPlugin.fromClass(
   class {
