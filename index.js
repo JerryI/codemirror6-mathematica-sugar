@@ -18,7 +18,7 @@ import rainbowBrackets from 'rainbowbrackets'
 
 let editorCustomTheme = EditorView.theme({
   "&.cm-focused": {
-    outline: "none",
+    outline: "dotted 1px black",
     background: 'inherit'
   },
   ".cm-line": {
@@ -33,7 +33,7 @@ let editorCustomTheme = EditorView.theme({
 
 let editorCustomThemeCompact = EditorView.theme({
   "&.cm-focused": {
-    outline: "none",
+    outline: "dotted 1px black",
     background: 'inherit'
   },
   ".cm-line": {
@@ -85,7 +85,8 @@ compactWLEditor = (p) => {
           p.eval();
           return true;
         } }
-      ]),         
+      ]),  
+      p.extensions || [],       
       minimalSetup,
       editorCustomThemeCompact,      
       wolframLanguage, 

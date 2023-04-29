@@ -102,6 +102,8 @@ class Widget extends WidgetType {
       return changes;
     }
 
+    const origin = view;
+
     this.subEditor({
       doc: args[0],
       parent: head,
@@ -117,7 +119,21 @@ class Widget extends WidgetType {
       },
       eval: () => {
         view.viewState.state.config.eval();
-      }
+      },
+      extensions: [
+        keymap.of([
+          { key: "ArrowRight", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } },   
+          { key: "ArrowLeft", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } }
+        ])
+      ]       
     });
 
     span.appendChild(head);

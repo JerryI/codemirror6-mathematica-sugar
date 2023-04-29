@@ -107,7 +107,10 @@ class Widget extends WidgetType {
       return changes;
     }
 
-    this.subEditor({
+    let topEditor, bottomEditor;
+    const origin = view;
+
+    topEditor = this.subEditor({
       doc: args[0],
       parent: head,
       update: (upd) => {
@@ -122,13 +125,27 @@ class Widget extends WidgetType {
       },
       eval: () => {
         view.viewState.state.config.eval();
-      }
+      },
+      extensions: [
+        keymap.of([
+          { key: "ArrowLeft", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } },   
+          { key: "ArrowRight", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              bottomEditor.focus();
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } }
+        ])
+      ]      
     });
 
     const sub = document.createElement("sup");
     sub.classList.add("subscript-tail");
 
-    const editor = this.subEditor({
+    bottomEditor = this.subEditor({
       doc: args[1],
       parent: sub,
       update: (upd) => {
@@ -140,14 +157,28 @@ class Widget extends WidgetType {
         console.log('insert change');
         console.log(change);
         view.dispatch({changes: change});
-      }      
+      },
+      extensions: [
+        keymap.of([
+          { key: "ArrowRight", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } },   
+          { key: "ArrowLeft", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              topEditor.focus();
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } }
+        ])
+      ]        
     });
 
     
-    if (view.viewState.state.config.nextFocus) {
+    /*if (view.viewState.state.config.nextFocus) {
       editor.focus();
       view.viewState.state.config.nextFocus = false;
-    }
+    }*/
 
     span.appendChild(head);
     span.appendChild(sub);

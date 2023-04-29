@@ -118,7 +118,10 @@ class Widget extends WidgetType {
       return changes;
     }
 
-    this.subEditor({
+    let topEditor, bottomEditor;
+    const origin = view;
+
+    topEditor = this.subEditor({
       doc: args[0],
       parent: enumenator,
       update: (upd) => {
@@ -133,10 +136,29 @@ class Widget extends WidgetType {
       },
       eval: () => {
         view.viewState.state.config.eval();
-      }
+      },
+      extensions: [
+        keymap.of([
+          { key: "ArrowLeft", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } }, 
+          { key: "ArrowRight", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } },             
+          { key: "ArrowDown", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              bottomEditor.focus();
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } }
+        ])
+      ]
     });
 
-    this.subEditor({
+    bottomEditor = this.subEditor({
       doc: args[1],
       parent: denumenator,
       update: (upd) => {
@@ -151,7 +173,26 @@ class Widget extends WidgetType {
       },
       eval: () => {
         view.viewState.state.config.eval();
-      }  
+      },
+      extensions: [
+        keymap.of([
+          { key: "ArrowLeft", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } }, 
+          { key: "ArrowRight", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              origin.focus()
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } },             
+          { key: "ArrowUp", run: function (editor, key) {  
+            if (editor?.editorLastCursor === editor.state.selection.ranges[0].to)
+              topEditor.focus();
+            editor.editorLastCursor = editor.state.selection.ranges[0].to;  
+          } }
+        ])
+      ]  
     });
 
 
