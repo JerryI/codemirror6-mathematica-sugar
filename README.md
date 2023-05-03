@@ -65,35 +65,35 @@ and CSS
   .fraction .container .enumenator {
     border-bottom:solid 1px;
   }
-  .root {
-    display: inline-block;
-    vertical-align: middle;
-    border-top: 1px solid;
-    border-left: 1px solid;
-    transform: skew(-15deg);
-    transform-origin: bottom left;
-    margin: 0 10px;
-    position: relative;
-  }
-  
-  .root:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    height: 40%;
-    width: 5px;
-    left: -5px;
-    border-top: 1px solid;
-    border-right: 1px solid;
-    transform: skew(30deg);
-    transform-origin: bottom right;
-  }
-  
-  .radicand {
-    display: inline-block;
-    padding-left: 0.5em;
-    transform: skew(15deg);
-  }
+      .sqroot {
+        display: inline-block;
+        vertical-align: middle;
+        border-top: 1px solid;
+        border-left: 1px solid;
+        transform: skew(-15deg);
+        transform-origin: bottom left;
+        margin: 0 10px;
+        position: relative;
+      }
+      
+      .sqroot:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        height: 40%;
+        width: 5px;
+        left: -5px;
+        border-top: 1px solid;
+        border-right: 1px solid;
+        transform: skew(30deg);
+        transform-origin: bottom right;
+      }
+      
+      .radicand {
+        display: inline-block;
+        padding-left: 0.5em;
+        transform: skew(15deg);
+      }
 ```
 
 or run an example in the root directory by

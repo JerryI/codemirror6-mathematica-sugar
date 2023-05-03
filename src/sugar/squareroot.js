@@ -68,7 +68,7 @@ class Widget extends WidgetType {
   }
   eq(other) {
     console.log('compare');
-    console.log(this.visibleValue.str === other.visibleValue.str)
+    
     return this.visibleValue.str === other.visibleValue.str;
   }
   updateDOM(dom, view) {
@@ -77,7 +77,7 @@ class Widget extends WidgetType {
   }
   toDOM(view) {
     let span = document.createElement("span");
-    span.classList.add("root");
+    span.classList.add("sqroot");
 
     if (this.visibleValue.args.length !== 1) {
       this.visibleValue.args = [this.visibleValue.str];
@@ -151,6 +151,7 @@ const matcher = (ref, view) => {
   return new BallancedMatchDecorator({
     regexp: /CM6Sqrt\[/,
     decoration: (match) => {
+      
       return Decoration.replace({
         widget: new Widget(match, ref, view)
       });
@@ -165,6 +166,7 @@ const placeholder = ViewPlugin.fromClass(
       this.placeholder = matcher(this.disposable, view).createDeco(view);
     }
     update(update) {
+      console.log(this.placeholder);
       this.placeholder = matcher(this.disposable, update).updateDeco(
         update,
         this.placeholder
@@ -184,6 +186,7 @@ const placeholder = ViewPlugin.fromClass(
     provide: (plugin) =>
       EditorView.atomicRanges.of((view) => {
         var _a;
+        
         return (
           ((_a = view.plugin(plugin)) === null || _a === void 0
             ? void 0

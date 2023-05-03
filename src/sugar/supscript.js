@@ -32,7 +32,10 @@ export function supscriptWidget(view) {
   ];
 }
 
+let focusNext = false;
+
 function snippet() {
+  focusNext = true;
   return ({ state, dispatch }) => {
     if (state.readOnly) return false;
     console.log(state);
@@ -179,6 +182,8 @@ class Widget extends WidgetType {
       editor.focus();
       view.viewState.state.config.nextFocus = false;
     }*/
+    if (focusNext) bottomEditor.focus();
+    focusNext = false;
 
     span.appendChild(head);
     span.appendChild(sub);

@@ -32,7 +32,10 @@ export function subscriptWidget(view) {
   ];
 }
 
+let focusNext = false;
+
 function snippet() {
+  focusNext = true;
   return ({ state, dispatch }) => {
     if (state.readOnly) return false;
     let changes = state.changeByRange((range) => {
@@ -162,6 +165,9 @@ class Widget extends WidgetType {
         ])
       ]            
     });
+
+    if (focusNext) bottomEditor.focus();
+    focusNext = false;
 
     span.appendChild(head);
     span.appendChild(sub);

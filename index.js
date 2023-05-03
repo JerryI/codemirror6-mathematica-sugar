@@ -10,7 +10,7 @@ import { squareRootWidget } from "./src/sugar/squareroot";
 import { matrixWidget } from "./src/sugar/matrix";
 
 import { Greekholder, Arrowholder } from "./src/sugar/misc";
-
+ 
 import { bracketMatching } from "@codemirror/language"
 
 import rainbowBrackets from 'rainbowbrackets'

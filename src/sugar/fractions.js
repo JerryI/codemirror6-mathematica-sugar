@@ -223,9 +223,9 @@ const placeholder = ViewPlugin.fromClass(
     }
     update(update) {
       if (update.docChanged || update.selectionSet || update.viewportChanged) {
-        console.log('check the cursor!');
-        console.log(update);
-        console.log(this.placeholder);
+        //console.log('check the cursor7!'); 
+        //console.log(update.state.selection.ranges[0].from);
+        //console.log(this.placeholder.chunk[0].from);
       }
 
       this.placeholder = matcher(this.disposable, update).updateDeco(
@@ -247,6 +247,7 @@ const placeholder = ViewPlugin.fromClass(
     provide: (plugin) =>
       EditorView.atomicRanges.of((view) => {
         var _a;
+        
         return (
           ((_a = view.plugin(plugin)) === null || _a === void 0
             ? void 0
