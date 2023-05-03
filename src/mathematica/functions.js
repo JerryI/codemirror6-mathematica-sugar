@@ -12,23 +12,23 @@ ExportString[% // DeleteMissing, "JSON"]
 
 
 /*
-{"$[CapitalAlpha]", "$[CapitalBeta]", "$[CapitalGamma]", 
-  "$[CapitalDelta]", "$[CapitalEpsilon]", "$[CapitalZeta]", 
-  "$[CapitalEta]", "$[CapitalTheta]", "$[CapitalIota]", 
-  "$[CapitalKappa]", "$[CapitalLambda]", "$[CapitalMu]", 
-  "$[CapitalNu]", "$[CapitalXi]", "$[CapitalOmicron]", "$[CapitalPi]",
-   "$[CapitalRho]", "$[CapitalSigma]", "$[CapitalTau]", 
-  "$[CapitalUpsilon]", "$[CapitalPhi]", "$[CapitalChi]", 
-  "$[CapitalPsi]", "$[CapitalOmega]", "$[Alpha]", "$[Beta]", 
-  "$[Gamma]", "$[Delta]", "$[CurlyEpsilon]", "$[Zeta]", "$[Eta]", 
-  "$[Theta]", "$[Iota]", "$[Kappa]", "$[Lambda]", "$[Mu]", "$[Nu]", 
-  "$[Xi]", "$[Omicron]", "$[Pi]", "$[Rho]", "$[FinalSigma]", 
-  "$[Sigma]", "$[Tau]", "$[Upsilon]", "$[CurlyPhi]", "$[Chi]", 
-  "$[Psi]", "$[Omega]", "$[CurlyTheta]", "$[CurlyCapitalUpsilon]", 
-  "$[Phi]", "$[CurlyPi]", "$[CapitalStigma]", "$[Stigma]", 
-  "$[CapitalDigamma]", "$[Digamma]", "$[CapitalKoppa]", "$[Koppa]", 
-  "$[CapitalSampi]", "$[Sampi]", "$[CurlyKappa]", "$[CurlyRho]", 
-  "$[Epsilon]"};
+{"EC[CapitalAlpha]", "EC[CapitalBeta]", "EC[CapitalGamma]", 
+  "EC[CapitalDelta]", "EC[CapitalEpsilon]", "EC[CapitalZeta]", 
+  "EC[CapitalEta]", "EC[CapitalTheta]", "EC[CapitalIota]", 
+  "EC[CapitalKappa]", "EC[CapitalLambda]", "EC[CapitalMu]", 
+  "EC[CapitalNu]", "EC[CapitalXi]", "EC[CapitalOmicron]", "EC[CapitalPi]",
+   "EC[CapitalRho]", "EC[CapitalSigma]", "EC[CapitalTau]", 
+  "EC[CapitalUpsilon]", "EC[CapitalPhi]", "EC[CapitalChi]", 
+  "EC[CapitalPsi]", "EC[CapitalOmega]", "EC[Alpha]", "EC[Beta]", 
+  "EC[Gamma]", "EC[Delta]", "EC[CurlyEpsilon]", "EC[Zeta]", "EC[Eta]", 
+  "EC[Theta]", "EC[Iota]", "EC[Kappa]", "EC[Lambda]", "EC[Mu]", "EC[Nu]", 
+  "EC[Xi]", "EC[Omicron]", "EC[Pi]", "EC[Rho]", "EC[FinalSigma]", 
+  "EC[Sigma]", "EC[Tau]", "EC[Upsilon]", "EC[CurlyPhi]", "EC[Chi]", 
+  "EC[Psi]", "EC[Omega]", "EC[CurlyTheta]", "EC[CurlyCapitalUpsilon]", 
+  "EC[Phi]", "EC[CurlyPi]", "EC[CapitalStigma]", "EC[Stigma]", 
+  "EC[CapitalDigamma]", "EC[Digamma]", "EC[CapitalKoppa]", "EC[Koppa]", 
+  "EC[CapitalSampi]", "EC[Sampi]", "EC[CurlyKappa]", "EC[CurlyRho]", 
+  "EC[Epsilon]"};
 With[{s = #},
     <|"label" -> Switch[StringDrop[StringTake[s, 4], 2],
        
@@ -1352,7 +1352,7 @@ export const functions = [
   {
     "label":"Assuming",
     "type":"keyword",
-    "info":"Assuming[assum, expr] evaluates expr with assum appended to $Assumptions, so that assum is included "
+    "info":"Assuming[assum, expr] evaluates expr with assum appended to ECAssumptions, so that assum is included "
   },
   {
     "label":"Assumptions",
@@ -2832,7 +2832,7 @@ export const functions = [
   {
     "label":"BlockchainData",
     "type":"keyword",
-    "info":"BlockchainData[] gives information about the blockchain specified by $BlockchainBase.BlockchainData["
+    "info":"BlockchainData[] gives information about the blockchain specified by ECBlockchainBase.BlockchainData["
   },
   {
     "label":"BlockchainGet",
@@ -5222,7 +5222,7 @@ export const functions = [
   {
     "label":"CompilerEnvironmentAppendTo",
     "type":"keyword",
-    "info":"CompilerEnvironmentAppendTo[{def , def , â¦}] appends declarations to $CompilerEnvironment.CompilerEn"
+    "info":"CompilerEnvironmentAppendTo[{def , def , â¦}] appends declarations to ECCompilerEnvironment.CompilerEn"
   },
   {
     "label":"CompilerEnvironmentObject",
@@ -6775,9 +6775,9 @@ export const functions = [
     "info":"CylindricalDecompositionFunction[data][x , x , â¦] represents a cylindrical algebraic formula in x , "
   },
   {
-    "label":"C$",
+    "label":"CEC",
     "type":"keyword",
-    "info":"System`C$"
+    "info":"System`CEC"
   },
   {
     "label":"D",
@@ -8985,9 +8985,9 @@ export const functions = [
     "info":"DynamicWrapperBoxOptions ï¢ {opt  ï¢ val , opt  ï¢ val , â¦} is an option that specifies settings for Dy"
   },
   {
-    "label":"D$",
+    "label":"DEC",
     "type":"keyword",
-    "info":"System`D$"
+    "info":"System`DEC"
   },
   {
     "label":"E",
@@ -9512,7 +9512,7 @@ export const functions = [
   {
     "label":"EndPackage",
     "type":"keyword",
-    "info":"EndPackage[] restores $Context and $ContextPath to their values before the preceding BeginPackage, a"
+    "info":"EndPackage[] restores ECContext and ECContextPath to their values before the preceding BeginPackage, a"
   },
   {
     "label":"EngineEnvironment",
@@ -10337,12 +10337,12 @@ export const functions = [
   {
     "label":"ExternalStoragePut",
     "type":"keyword",
-    "info":"ExternalStoragePut[expr] writes expr to an external storage specified by $ExternalStorageBase.Extern"
+    "info":"ExternalStoragePut[expr] writes expr to an external storage specified by ECExternalStorageBase.Extern"
   },
   {
     "label":"ExternalStorageUpload",
     "type":"keyword",
-    "info":"ExternalStorageUpload[file] uploads file to an external storage specified by $ExternalStorageBase.Ex"
+    "info":"ExternalStorageUpload[file] uploads file to an external storage specified by ECExternalStorageBase.Ex"
   },
   {
     "label":"ExternalTypeSignature",
@@ -10380,9 +10380,9 @@ export const functions = [
     "info":"ExtremeValueDistribution[Î\\[PlusMinus], Î\.b2] represents an extreme value distribution with location parameter Î\\[PlusMinus] an"
   },
   {
-    "label":"E$",
+    "label":"EEC",
     "type":"keyword",
-    "info":"System`E$"
+    "info":"System`EEC"
   },
   {
     "label":"FaceAlign",
@@ -10502,7 +10502,7 @@ export const functions = [
   {
     "label":"FailureQ",
     "type":"keyword",
-    "info":"FailureQ[expr] gives True if expr has head Failure or is equal to $Failed or $Aborted."
+    "info":"FailureQ[expr] gives True if expr has head Failure or is equal to ECFailed or ECAborted."
   },
   {
     "label":"False",
@@ -12707,7 +12707,7 @@ export const functions = [
   {
     "label":"GeoElevationData",
     "type":"keyword",
-    "info":"GeoElevationData[] gives the elevation above sea level at $GeoLocation.GeoElevationData[loc] gives t"
+    "info":"GeoElevationData[] gives the elevation above sea level at ECGeoLocation.GeoElevationData[loc] gives t"
   },
   {
     "label":"GeoEntities",
@@ -12842,7 +12842,7 @@ export const functions = [
   {
     "label":"GeoMarker",
     "type":"keyword",
-    "info":"GeoMarker[] is a GeoGraphics primitive that represents a marker at the current $GeoLocation.GeoMarke"
+    "info":"GeoMarker[] is a GeoGraphics primitive that represents a marker at the current ECGeoLocation.GeoMarke"
   },
   {
     "label":"GeometricAssertion",
@@ -17542,7 +17542,7 @@ export const functions = [
   {
     "label":"LicenseID",
     "type":"keyword",
-    "info":"LicenseID is an option to Encode which specifies the required value of $LicenseID on the computer th"
+    "info":"LicenseID is an option to Encode which specifies the required value of ECLicenseID on the computer th"
   },
   {
     "label":"LicensingSettings",
@@ -18602,12 +18602,12 @@ export const functions = [
   {
     "label":"MachineID",
     "type":"keyword",
-    "info":"MachineID is an option to Encode which specifies the required value of $MachineID on the computer th"
+    "info":"MachineID is an option to Encode which specifies the required value of ECMachineID on the computer th"
   },
   {
     "label":"MachineName",
     "type":"keyword",
-    "info":"MachineName is an option to Encode which specifies the required value of $MachineName on the compute"
+    "info":"MachineName is an option to Encode which specifies the required value of ECMachineName on the compute"
   },
   {
     "label":"MachineNumberQ",
@@ -20407,7 +20407,7 @@ export const functions = [
   {
     "label":"Needs",
     "type":"keyword",
-    "info":"Needs[\"context`\"] loads an appropriate file if the specified context is not already in $Packages. Ne"
+    "info":"Needs[\"context`\"] loads an appropriate file if the specified context is not already in ECPackages. Ne"
   },
   {
     "label":"Negative",
@@ -23142,7 +23142,7 @@ export const functions = [
   {
     "label":"PersistentObjects",
     "type":"keyword",
-    "info":"PersistentObjects[] gives all persistent objects in all locations in $PersistencePath.PersistentObje"
+    "info":"PersistentObjects[] gives all persistent objects in all locations in ECPersistencePath.PersistentObje"
   },
   {
     "label":"PersistentSymbol",
@@ -27077,7 +27077,7 @@ export const functions = [
   {
     "label":"SendMail",
     "type":"keyword",
-    "info":"SendMail[body] sends mail consisting of body to the address specified by $CloudUserID.SendMail[{\"sub"
+    "info":"SendMail[body] sends mail consisting of body to the address specified by ECCloudUserID.SendMail[{\"sub"
   },
   {
     "label":"SendMessage",
@@ -32212,7 +32212,7 @@ export const functions = [
   {
     "label":"Unique",
     "type":"keyword",
-    "info":"Unique[] generates a new symbol, whose name is of the form $nnn. Unique[x] generates a new symbol, w"
+    "info":"Unique[] generates a new symbol, whose name is of the form ECnnn. Unique[x] generates a new symbol, w"
   },
   {
     "label":"UnitaryMatrixQ",
@@ -32532,7 +32532,7 @@ export const functions = [
   {
     "label":"URLSave",
     "type":"keyword",
-    "info":"URLSave[\"url\"] saves the content of the URL to a file in $TemporaryDirectory.URLSave[\"url\", \"file\"] "
+    "info":"URLSave[\"url\"] saves the content of the URL to a file in ECTemporaryDirectory.URLSave[\"url\", \"file\"] "
   },
   {
     "label":"URLSaveAsynchronous",
@@ -32887,7 +32887,7 @@ export const functions = [
   {
     "label":"VersionedPreferences",
     "type":"keyword",
-    "info":"VersionedPreferences is a global front end option that specifies whether settings on $FrontEnd shoul"
+    "info":"VersionedPreferences is a global front end option that specifies whether settings on ECFrontEnd shoul"
   },
   {
     "label":"VersionNumber",
@@ -34287,387 +34287,387 @@ export const functions = [
 
   
 	{
-		"label":"ESCca",
+		"label":"ECcaEC",
 		"type":"text",
-		"apply":"\\[CapitalAlpha]",
+		"apply":"$CapitalAlpha$",
 		"detail":"CapitalAlpha"
 	},
 	{
-		"label":"ESCcb",
+		"label":"ECcbEC",
 		"type":"text",
-		"apply":"\\[CapitalBeta]",
+		"apply":"$CapitalBeta$",
 		"detail":"CapitalBeta"
 	},
 	{
-		"label":"ESCcg",
+		"label":"ECcgEC",
 		"type":"text",
-		"apply":"\\[CapitalGamma]",
+		"apply":"$CapitalGamma$",
 		"detail":"CapitalGamma"
 	},
 	{
-		"label":"ESCcd",
+		"label":"ECcdEC",
 		"type":"text",
-		"apply":"\\[CapitalDelta]",
+		"apply":"$CapitalDelta$",
 		"detail":"CapitalDelta"
 	},
 	{
-		"label":"ESCce",
+		"label":"ECceEC",
 		"type":"text",
-		"apply":"\\[CapitalEpsilon]",
+		"apply":"$CapitalEpsilon$",
 		"detail":"CapitalEpsilon"
 	},
 	{
-		"label":"ESCcz",
+		"label":"ECczEC",
 		"type":"text",
-		"apply":"\\[CapitalZeta]",
+		"apply":"$CapitalZeta$",
 		"detail":"CapitalZeta"
 	},
 	{
-		"label":"ESCce",
+		"label":"ECceEC",
 		"type":"text",
-		"apply":"\\[CapitalEta]",
+		"apply":"$CapitalEta$",
 		"detail":"CapitalEta"
 	},
 	{
-		"label":"ESCct",
+		"label":"ECctEC",
 		"type":"text",
-		"apply":"\\[CapitalTheta]",
+		"apply":"$CapitalTheta$",
 		"detail":"CapitalTheta"
 	},
 	{
-		"label":"ESCci",
+		"label":"ECciEC",
 		"type":"text",
-		"apply":"\\[CapitalIota]",
+		"apply":"$CapitalIota$",
 		"detail":"CapitalIota"
 	},
 	{
-		"label":"ESCck",
+		"label":"ECckEC",
 		"type":"text",
-		"apply":"\\[CapitalKappa]",
+		"apply":"$CapitalKappa$",
 		"detail":"CapitalKappa"
 	},
 	{
-		"label":"ESCcl",
+		"label":"ECclEC",
 		"type":"text",
-		"apply":"\\[CapitalLambda]",
+		"apply":"$CapitalLambda$",
 		"detail":"CapitalLambda"
 	},
 	{
-		"label":"ESCcm",
+		"label":"ECcmEC",
 		"type":"text",
-		"apply":"\\[CapitalMu]",
+		"apply":"$CapitalMu$",
 		"detail":"CapitalMu"
 	},
 	{
-		"label":"ESCcn",
+		"label":"ECcnEC",
 		"type":"text",
-		"apply":"\\[CapitalNu]",
+		"apply":"$CapitalNu$",
 		"detail":"CapitalNu"
 	},
 	{
-		"label":"ESCcx",
+		"label":"ECcxEC",
 		"type":"text",
-		"apply":"\\[CapitalXi]",
+		"apply":"$CapitalXi$",
 		"detail":"CapitalXi"
 	},
 	{
-		"label":"ESCco",
+		"label":"ECcoEC",
 		"type":"text",
-		"apply":"\\[CapitalOmicron]",
+		"apply":"$CapitalOmicron$",
 		"detail":"CapitalOmicron"
 	},
 	{
-		"label":"ESCcp",
+		"label":"ECcpEC",
 		"type":"text",
-		"apply":"\\[CapitalPi]",
+		"apply":"$CapitalPi$",
 		"detail":"CapitalPi"
 	},
 	{
-		"label":"ESCcr",
+		"label":"ECcrEC",
 		"type":"text",
-		"apply":"\\[CapitalRho]",
+		"apply":"$CapitalRho$",
 		"detail":"CapitalRho"
 	},
 	{
-		"label":"ESCcs",
+		"label":"ECcsEC",
 		"type":"text",
-		"apply":"\\[CapitalSigma]",
+		"apply":"$CapitalSigma$",
 		"detail":"CapitalSigma"
 	},
 	{
-		"label":"ESCct",
+		"label":"ECctEC",
 		"type":"text",
-		"apply":"\\[CapitalTau]",
+		"apply":"$CapitalTau$",
 		"detail":"CapitalTau"
 	},
 	{
-		"label":"ESCcu",
+		"label":"ECcuEC",
 		"type":"text",
-		"apply":"\\[CapitalUpsilon]",
+		"apply":"$CapitalUpsilon$",
 		"detail":"CapitalUpsilon"
 	},
 	{
-		"label":"ESCcp",
+		"label":"ECcpEC",
 		"type":"text",
-		"apply":"\\[CapitalPhi]",
+		"apply":"$CapitalPhi$",
 		"detail":"CapitalPhi"
 	},
 	{
-		"label":"ESCcc",
+		"label":"ECccEC",
 		"type":"text",
-		"apply":"\\[CapitalChi]",
+		"apply":"$CapitalChi$",
 		"detail":"CapitalChi"
 	},
 	{
-		"label":"ESCcp",
+		"label":"ECcpEC",
 		"type":"text",
-		"apply":"\\[CapitalPsi]",
+		"apply":"$CapitalPsi$",
 		"detail":"CapitalPsi"
 	},
 	{
-		"label":"ESCco",
+		"label":"ECcoEC",
 		"type":"text",
-		"apply":"\\[CapitalOmega]",
+		"apply":"$CapitalOmega$",
 		"detail":"CapitalOmega"
 	},
 	{
-		"label":"ESCa",
+		"label":"ECalEC",
 		"type":"text",
-		"apply":"\\[Alpha]",
+		"apply":"$Alpha$",
 		"detail":"Alpha"
 	},
 	{
-		"label":"ESCb",
+		"label":"ECbeEC",
 		"type":"text",
-		"apply":"\\[Beta]",
+		"apply":"$Beta$",
 		"detail":"Beta"
 	},
 	{
-		"label":"ESCg",
+		"label":"ECgaEC",
 		"type":"text",
-		"apply":"\\[Gamma]",
+		"apply":"$Gamma$",
 		"detail":"Gamma"
 	},
 	{
-		"label":"ESCd",
+		"label":"ECdeEC",
 		"type":"text",
-		"apply":"\\[Delta]",
+		"apply":"$Delta$",
 		"detail":"Delta"
 	},
 	{
-		"label":"ESCce",
+		"label":"ECceEC",
 		"type":"text",
-		"apply":"\\[CurlyEpsilon]",
+		"apply":"$CurlyEpsilon$",
 		"detail":"CurlyEpsilon"
 	},
 	{
-		"label":"ESCz",
+		"label":"ECzeEC",
 		"type":"text",
-		"apply":"\\[Zeta]",
+		"apply":"$Zeta$",
 		"detail":"Zeta"
 	},
 	{
-		"label":"ESCe",
+		"label":"ECetEC",
 		"type":"text",
-		"apply":"\\[Eta]",
+		"apply":"$Eta$",
 		"detail":"Eta"
 	},
 	{
-		"label":"ESCt",
+		"label":"ECthEC",
 		"type":"text",
-		"apply":"\\[Theta]",
+		"apply":"$Theta$",
 		"detail":"Theta"
 	},
 	{
-		"label":"ESCi",
+		"label":"ECioEC",
 		"type":"text",
-		"apply":"\\[Iota]",
+		"apply":"$Iota$",
 		"detail":"Iota"
 	},
 	{
-		"label":"ESCk",
+		"label":"ECkaEC",
 		"type":"text",
-		"apply":"\\[Kappa]",
+		"apply":"$Kappa$",
 		"detail":"Kappa"
 	},
 	{
-		"label":"ESCl",
+		"label":"EClaEC",
 		"type":"text",
-		"apply":"\\[Lambda]",
+		"apply":"$Lambda$",
 		"detail":"Lambda"
 	},
 	{
-		"label":"ESCm",
+		"label":"ECmuEC",
 		"type":"text",
-		"apply":"\\[Mu]",
+		"apply":"$Mu$",
 		"detail":"Mu"
 	},
 	{
-		"label":"ESCn",
+		"label":"ECnuEC",
 		"type":"text",
-		"apply":"\\[Nu]",
+		"apply":"$Nu$",
 		"detail":"Nu"
 	},
 	{
-		"label":"ESCx",
+		"label":"ECxiEC",
 		"type":"text",
-		"apply":"\\[Xi]",
+		"apply":"$Xi$",
 		"detail":"Xi"
 	},
 	{
-		"label":"ESCo",
+		"label":"EComEC",
 		"type":"text",
-		"apply":"\\[Omicron]",
+		"apply":"$Omicron$",
 		"detail":"Omicron"
 	},
 	{
-		"label":"ESCp",
+		"label":"ECpiEC",
 		"type":"text",
-		"apply":"\\[Pi]",
+		"apply":"$Pi$",
 		"detail":"Pi"
 	},
 	{
-		"label":"ESCr",
+		"label":"ECrhEC",
 		"type":"text",
-		"apply":"\\[Rho]",
+		"apply":"$Rho$",
 		"detail":"Rho"
 	},
 	{
-		"label":"ESCf",
+		"label":"ECfiEC",
 		"type":"text",
-		"apply":"\\[FinalSigma]",
+		"apply":"$FinalSigma$",
 		"detail":"FinalSigma"
 	},
 	{
-		"label":"ESCs",
+		"label":"ECsiEC",
 		"type":"text",
-		"apply":"\\[Sigma]",
+		"apply":"$Sigma$",
 		"detail":"Sigma"
 	},
 	{
-		"label":"ESCt",
+		"label":"ECtaEC",
 		"type":"text",
-		"apply":"\\[Tau]",
+		"apply":"$Tau$",
 		"detail":"Tau"
 	},
 	{
-		"label":"ESCu",
+		"label":"ECupEC",
 		"type":"text",
-		"apply":"\\[Upsilon]",
+		"apply":"$Upsilon$",
 		"detail":"Upsilon"
 	},
 	{
-		"label":"ESCcp",
+		"label":"ECcpEC",
 		"type":"text",
-		"apply":"\\[CurlyPhi]",
+		"apply":"$CurlyPhi$",
 		"detail":"CurlyPhi"
 	},
 	{
-		"label":"ESCc",
+		"label":"ECchEC",
 		"type":"text",
-		"apply":"\\[Chi]",
+		"apply":"$Chi$",
 		"detail":"Chi"
 	},
 	{
-		"label":"ESCp",
+		"label":"ECpsEC",
 		"type":"text",
-		"apply":"\\[Psi]",
+		"apply":"$Psi$",
 		"detail":"Psi"
 	},
 	{
-		"label":"ESCo",
+		"label":"EComEC",
 		"type":"text",
-		"apply":"\\[Omega]",
+		"apply":"$Omega$",
 		"detail":"Omega"
 	},
 	{
-		"label":"ESCct",
+		"label":"ECctEC",
 		"type":"text",
-		"apply":"\\[CurlyTheta]",
+		"apply":"$CurlyTheta$",
 		"detail":"CurlyTheta"
 	},
 	{
-		"label":"ESCcc",
+		"label":"ECccEC",
 		"type":"text",
-		"apply":"\\[CurlyCapitalUpsilon]",
+		"apply":"$CurlyCapitalUpsilon$",
 		"detail":"CurlyCapitalUpsilon"
 	},
 	{
-		"label":"ESCp",
+		"label":"ECphEC",
 		"type":"text",
-		"apply":"\\[Phi]",
+		"apply":"$Phi$",
 		"detail":"Phi"
 	},
 	{
-		"label":"ESCcp",
+		"label":"ECcpEC",
 		"type":"text",
-		"apply":"\\[CurlyPi]",
+		"apply":"$CurlyPi$",
 		"detail":"CurlyPi"
 	},
 	{
-		"label":"ESCcs",
+		"label":"ECcsEC",
 		"type":"text",
-		"apply":"\\[CapitalStigma]",
+		"apply":"$CapitalStigma$",
 		"detail":"CapitalStigma"
 	},
 	{
-		"label":"ESCs",
+		"label":"ECstEC",
 		"type":"text",
-		"apply":"\\[Stigma]",
+		"apply":"$Stigma$",
 		"detail":"Stigma"
 	},
 	{
-		"label":"ESCcd",
+		"label":"ECcdEC",
 		"type":"text",
-		"apply":"\\[CapitalDigamma]",
+		"apply":"$CapitalDigamma$",
 		"detail":"CapitalDigamma"
 	},
 	{
-		"label":"ESCd",
+		"label":"ECdiEC",
 		"type":"text",
-		"apply":"\\[Digamma]",
+		"apply":"$Digamma$",
 		"detail":"Digamma"
 	},
 	{
-		"label":"ESCck",
+		"label":"ECckEC",
 		"type":"text",
-		"apply":"\\[CapitalKoppa]",
+		"apply":"$CapitalKoppa$",
 		"detail":"CapitalKoppa"
 	},
 	{
-		"label":"ESCk",
+		"label":"ECkoEC",
 		"type":"text",
-		"apply":"\\[Koppa]",
+		"apply":"$Koppa$",
 		"detail":"Koppa"
 	},
 	{
-		"label":"ESCcs",
+		"label":"ECcsEC",
 		"type":"text",
-		"apply":"\\[CapitalSampi]",
+		"apply":"$CapitalSampi$",
 		"detail":"CapitalSampi"
 	},
 	{
-		"label":"ESCs",
+		"label":"ECsaEC",
 		"type":"text",
-		"apply":"\\[Sampi]",
+		"apply":"$Sampi$",
 		"detail":"Sampi"
 	},
 	{
-		"label":"ESCck",
+		"label":"ECckEC",
 		"type":"text",
-		"apply":"\\[CurlyKappa]",
+		"apply":"$CurlyKappa$",
 		"detail":"CurlyKappa"
 	},
 	{
-		"label":"ESCcr",
+		"label":"ECcrEC",
 		"type":"text",
-		"apply":"\\[CurlyRho]",
+		"apply":"$CurlyRho$",
 		"detail":"CurlyRho"
 	},
 	{
-		"label":"ESCe",
+		"label":"ECepEC",
 		"type":"text",
-		"apply":"\\[Epsilon]",
+		"apply":"$Epsilon$",
 		"detail":"Epsilon"
 	}
                                                                 

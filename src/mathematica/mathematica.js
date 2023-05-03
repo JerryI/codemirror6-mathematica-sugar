@@ -32,8 +32,8 @@ function newESC() {
       //if (atEof) from = to = (to <= line.to ? line : state.doc.lineAt(to)).to
 
       return {
-        changes: { from, to, insert: "ESC" },
-        range: EditorSelection.cursor(from + 3)
+        changes: { from, to, insert: "EC" },
+        range: EditorSelection.cursor(from + 2)
       };
     });
 
