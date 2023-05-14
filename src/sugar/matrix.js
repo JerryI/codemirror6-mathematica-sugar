@@ -69,12 +69,12 @@ class Widget extends WidgetType {
     this.subEditor = subEditor;
   }
   eq(other) {
-    console.log('compare');
-    console.log(this.visibleValue.str === other.visibleValue.str)
+    //console.log('compare');
+    //console.log(this.visibleValue.str === other.visibleValue.str)
     return this.visibleValue.str === other.visibleValue.str;
   }
   updateDOM(dom, view) {
-    console.log('update widget DOM');
+    //console.log('update widget DOM');
     return true
   }
   toDOM(view) {
@@ -100,7 +100,7 @@ class Widget extends WidgetType {
       return changes;
     }
 
-    console.log('create widget DOM!!!!');
+    //console.log('create widget DOM!!!!');
     const rows = ListMatch(this.visibleValue.str);
 
     this.args = [];
@@ -132,8 +132,8 @@ class Widget extends WidgetType {
             this.args[i][j] = upd;
 
             const change = recreateString(this.args);
-            console.log('insert change');
-            console.log(change);
+            //console.log('insert change');
+            //console.log(change);
             view.dispatch({changes: change});
           },
           extensions: [

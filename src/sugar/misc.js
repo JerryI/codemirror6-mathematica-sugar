@@ -9,7 +9,7 @@ import {
 const GreekMatcher = new MatchDecorator({
   regexp: /\$([a-zA-z]+)\$/g,
   decoration: (match) => {
-    console.log(match);
+    //console.log(match);
     return Decoration.replace({
       widget: new GreekWidget(match[1])
     })
@@ -35,7 +35,7 @@ export const Greekholder = ViewPlugin.fromClass(
 
 class GreekWidget extends WidgetType {
   constructor(name) {
-    console.log('created');
+    //console.log('created');
     super();
     this.name = name;
   }
@@ -43,7 +43,7 @@ class GreekWidget extends WidgetType {
     return this.name === other.name;
   }
   toDOM() {
-    console.log('to DOM');
+    //console.log('to DOM');
     let elt = document.createElement("span");
     elt.innerHTML =
       "&" +
@@ -96,7 +96,7 @@ class ArrowWidget extends WidgetType {
   }
   toDOM() {
     let elt = document.createElement("span");
-    console.log(this.dir);
+    //console.log(this.dir);
     if (this.dir === "->") {
       elt.innerText = "→";
     } else {

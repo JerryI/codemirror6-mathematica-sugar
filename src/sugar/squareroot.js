@@ -67,12 +67,12 @@ class Widget extends WidgetType {
     this.subEditor = subEditor;
   }
   eq(other) {
-    console.log('compare');
+    //console.log('compare');
     
     return this.visibleValue.str === other.visibleValue.str;
   }
   updateDOM(dom, view) {
-    console.log('update widget DOM');
+    //console.log('update widget DOM');
     return true
   }
   toDOM(view) {
@@ -81,11 +81,11 @@ class Widget extends WidgetType {
 
     if (this.visibleValue.args.length !== 1) {
       this.visibleValue.args = [this.visibleValue.str];
-      console.log("single argument or not found");
+      //console.log("single argument or not found");
     }
     
-    console.log('create widget DOM!!!!');
-    console.log(this.visibleValue);
+    //console.log('create widget DOM!!!!');
+    //console.log(this.visibleValue);
  
     const args = this.visibleValue.args;
 
@@ -113,8 +113,8 @@ class Widget extends WidgetType {
 
         this.visibleValue.args[0] = upd;
         const change = recreateString(this.visibleValue.args);
-        console.log('insert change');
-        console.log(change);
+        //console.log('insert change');
+        //console.log(change);
         view.dispatch({changes: change});
       },
       eval: () => {
@@ -166,7 +166,7 @@ const placeholder = ViewPlugin.fromClass(
       this.placeholder = matcher(this.disposable, view).createDeco(view);
     }
     update(update) {
-      console.log(this.placeholder);
+      
       this.placeholder = matcher(this.disposable, update).updateDeco(
         update,
         this.placeholder

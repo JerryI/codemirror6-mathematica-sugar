@@ -15,7 +15,7 @@ const m = new Balanced({
     );
 
 
-    console.log(sub);
+    //console.log(sub);
 
     const compoundMatches = new Balanced({
       open: ["[", "{"],
@@ -26,7 +26,7 @@ const m = new Balanced({
     let SyntaxTree = [];
 
     let lastIndex = 0;
-    console.log(compoundMatches);
+    //console.log(compoundMatches);
 
     compoundMatches.forEach((e) => {
       SyntaxTree.push({
@@ -46,21 +46,21 @@ const m = new Balanced({
 
     let args = [];
     
-    console.log(SyntaxTree);
+    //console.log(SyntaxTree);
 
     SyntaxTree.reverse().forEach((s) => {
       
       const localargs = [];
       
       if (s.begin.length == 0) {
-        console.log(s);
+        //console.log(s);
         localargs.push(s.expr);
         
         
       } else {
 
       let matches = s.begin.split(",");
-      console.log(matches);
+      //console.log(matches);
       if (SyntaxTree.length > 1) matches.shift();
       if (matches.length == 0) matches = [s.begin];
 

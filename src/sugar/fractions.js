@@ -67,12 +67,12 @@ class Widget extends WidgetType {
     this.subEditor = subEditor;
   }
   eq(other) {
-    console.log('compare');
-    console.log(this.visibleValue.str === other.visibleValue.str)
+    //console.log('compare');
+    //console.log(this.visibleValue.str === other.visibleValue.str)
     return this.visibleValue.str === other.visibleValue.str;
   }
   updateDOM(dom, view) {
-    console.log('update widget DOM');
+    //console.log('update widget DOM');
     return true
   }
   toDOM(view) {
@@ -83,8 +83,8 @@ class Widget extends WidgetType {
       this.visibleValue.args = ["_", "_"];
       console.error("argumets doesnt match");
     }
-    console.log('create widget DOM!!!!');
-    console.log(this.visibleValue);
+    //console.log('create widget DOM!!!!');
+    //console.log(this.visibleValue);
  
     const args = this.visibleValue.args;
 
@@ -130,8 +130,8 @@ class Widget extends WidgetType {
 
         this.visibleValue.args[0] = upd;
         const change = recreateString(this.visibleValue.args);
-        console.log('insert change');
-        console.log(change);
+        //console.log('insert change');
+        //console.log(change);
         view.dispatch({changes: change});
       },
       eval: () => {
@@ -167,8 +167,8 @@ class Widget extends WidgetType {
 
         this.visibleValue.args[1] = upd;
         const change = recreateString(this.visibleValue.args);
-        console.log('insert change');
-        console.log(change);
+        //console.log('insert change');
+        //console.log(change);
         view.dispatch({changes: change});
       },
       eval: () => {

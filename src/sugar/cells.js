@@ -62,8 +62,8 @@ export const cellTypesHighlight = ViewPlugin.fromClass(
       ) {
         if (!cursor.lineBreak) {
           while ((m = r.exec(cursor.value))) {
-            console.log('cells.js');
-            console.log(m);
+            //console.log('cells.js');
+            //console.log(m);
             // An edge case.
             //if (m.input[m.index - 1] === "_" || m.input[m.index - 1] === "*")
             //  continue;
