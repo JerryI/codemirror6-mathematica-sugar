@@ -48,7 +48,7 @@ With[{s = #},
 ExportString[%, "JSON"
 */
 
-export const functions = [
+export let defaultFunctions = [
   {
     "label":"AASTriangle",
     "type":"keyword",
@@ -2328,11 +2328,6 @@ export const functions = [
     "label":"BeginDialogPacket",
     "type":"keyword",
     "info":"BeginDialogPacket[integer] is a WSTP packet that indicates the start of the Dialog subsession refere"
-  },
-  {
-    "label":"BeginFrontEndInteractionPacket",
-    "type":"keyword",
-    "info":"System`BeginFrontEndInteractionPacket"
   },
   {
     "label":"BeginPackage",
@@ -9485,11 +9480,6 @@ export const functions = [
     "info":"EndDialogPacket[integer] is a WSTP packet indicating the end of the Dialog subsession referenced by "
   },
   {
-    "label":"EndFrontEndInteractionPacket",
-    "type":"keyword",
-    "info":"System`EndFrontEndInteractionPacket"
-  },
-  {
     "label":"EndOfBuffer",
     "type":"keyword",
     "info":"EndOfBuffer is a symbol that represents the end of currently available data in the buffer for a proc"
@@ -12020,61 +12010,6 @@ export const functions = [
     "info":"Front is a symbol that represents the front of a graphic for purposes of placement and alignment."
   },
   {
-    "label":"FrontEndDynamicExpression",
-    "type":"keyword",
-    "info":"FrontEndDynamicExpression is a global front end option that specifies an expression to be dynamicall"
-  },
-  {
-    "label":"FrontEndEventActions",
-    "type":"keyword",
-    "info":"FrontEndEventActions is an option for the notebook front end that gives a list of actions to perform"
-  },
-  {
-    "label":"FrontEndExecute",
-    "type":"keyword",
-    "info":"FrontEndExecute[expr] sends expr to be executed by the Wolfram System front end. "
-  },
-  {
-    "label":"FrontEndObject",
-    "type":"keyword",
-    "info":"System`FrontEndObject"
-  },
-  {
-    "label":"FrontEndResource",
-    "type":"keyword",
-    "info":"System`FrontEndResource"
-  },
-  {
-    "label":"FrontEndResourceString",
-    "type":"keyword",
-    "info":"System`FrontEndResourceString"
-  },
-  {
-    "label":"FrontEndStackSize",
-    "type":"keyword",
-    "info":"System`FrontEndStackSize"
-  },
-  {
-    "label":"FrontEndToken",
-    "type":"keyword",
-    "info":"FrontEndToken[\"cmd\"] is an object that represents a front end command token, typically corresponding"
-  },
-  {
-    "label":"FrontEndTokenExecute",
-    "type":"keyword",
-    "info":"FrontEndTokenExecute[\"cmd\"] executes the specified front end command token, typically corresponding "
-  },
-  {
-    "label":"FrontEndValueCache",
-    "type":"keyword",
-    "info":"System`FrontEndValueCache"
-  },
-  {
-    "label":"FrontEndVersion",
-    "type":"keyword",
-    "info":"System`FrontEndVersion"
-  },
-  {
     "label":"FrontFaceColor",
     "type":"keyword",
     "info":"System`FrontFaceColor"
@@ -13093,11 +13028,6 @@ export const functions = [
     "label":"GetFileName",
     "type":"keyword",
     "info":"System`GetFileName"
-  },
-  {
-    "label":"GetFrontEndOptionsDataPacket",
-    "type":"keyword",
-    "info":"System`GetFrontEndOptionsDataPacket"
   },
   {
     "label":"GetLinebreakInformationPacket",
@@ -20390,16 +20320,6 @@ export const functions = [
     "info":"NebulaData[entity, property] gives the value of the specified property for the nebula entity.NebulaD"
   },
   {
-    "label":"NeedCurrentFrontEndPackagePacket",
-    "type":"keyword",
-    "info":"System`NeedCurrentFrontEndPackagePacket"
-  },
-  {
-    "label":"NeedCurrentFrontEndSymbolsPacket",
-    "type":"keyword",
-    "info":"System`NeedCurrentFrontEndSymbolsPacket"
-  },
-  {
     "label":"NeedlemanWunschSimilarity",
     "type":"keyword",
     "info":"NeedlemanWunschSimilarity[u, v] gives a number representing the NeedlemanâWunsch similarity between "
@@ -24258,11 +24178,6 @@ export const functions = [
     "label":"PrivateFontOptions",
     "type":"keyword",
     "info":"PrivateFontOptions is an option for selections that specifies settings for various font suboptions."
-  },
-  {
-    "label":"PrivateFrontEndOptions",
-    "type":"keyword",
-    "info":"System`PrivateFrontEndOptions"
   },
   {
     "label":"PrivateKey",
@@ -32570,11 +32485,6 @@ export const functions = [
     "info":"Using is an option to Roots that specifies any subsidiary equations that are to be used."
   },
   {
-    "label":"UsingFrontEnd",
-    "type":"keyword",
-    "info":"UsingFrontEnd[expr] evaluates expr, making use of a front end if necessary."
-  },
-  {
     "label":"UtilityFunction",
     "type":"keyword",
     "info":"UtilityFunction is an option for Predict, Classify, and related functions that specifies the utility"
@@ -34208,84 +34118,7 @@ export const functions = [
     "label":"ZTransform",
     "type":"keyword",
     "info":"ZTransform[expr, n, z] gives the Z transform of expr. ZTransform[expr, {n , n , â¦}, {z , z , â¦}] giv"
-  },
-  {
-    "label":"Plotly",
-    "type":"keyword",
-    "info":"Plotly[expr, {x, 0, 1}] gives an interactive plot of a expr"
-  },   
-  {
-    "label":"ListPlotly",
-    "type":"keyword",
-    "info":"ListPlotly[{{x1,y1},{x2,y2}...}] gives an interactive plot of data"
-  }, 
-  {
-    "label":"ListLinePlotly",
-    "type":"keyword",
-    "info":"ListLinePlotly[{{x1,y1},{x2,y2}...}] gives an interactive plot of data"
   },  
-  {
-    "label":"HTMLForm",
-    "type":"keyword",
-    "info":"HTMLForm[\"<h1>Hi!</h1>\"] prints custom HTML script"
-  },  
-  {
-    "label":"SVGForm",
-    "type":"keyword",
-    "info":"SVGForm[expr] exports and displays any object as SVG graphics"
-  },  
-  {
-    "label":"CreateFrontEndObject",
-    "type":"keyword",
-    "info":"CreateFrontEndObject[expr, uid] put expr into sharable dynamic expression with uid as id, that can be read by frontend"
-  },
-  {
-    "label":"FrontEndRef",
-    "type":"keyword",
-    "info":"FrontEndRef[object or uid] acts as a reference to frontend object. Prevents evaluation on a Kernel"
-  }, 
-  {
-    "label":"FrontEndOnly",
-    "type":"keyword",
-    "info":"FrontEndOnly[expr] prevents evaluation on a Kernel"
-  },  
-  {
-    "label":"SendToFrontEnd",
-    "type":"keyword",
-    "info":"SendToFrontEnd[expr] evaluate arbitary expression on frontend"
-  }, 
-  {
-    "label":"EventObject",
-    "type":"keyword",
-    "info":"EventObject[<|expr|>] a holder of the event object"
-  },   
-  {
-    "label":"EventBind",
-    "type":"keyword",
-    "info":"EventBind[EventObject[event], handler] binds a handler to event"
-  },    
-  {
-    "label":"RequestAnimationFrame",
-    "type":"keyword",
-    "info":"RequestAnimationFrame an wrapper for ListLinePlotly or ListPlotly"
-  },
-  {
-    "label":"SetFrontEndObject",
-    "type":"keyword",
-    "info":"SetFrontEndObject[obj or uid, expr] sets the frontend object by itself or uid to an arbitary expr"
-  },
-  {
-    "label":"EventRemove",
-    "type":"keyword",
-    "info":"EventRemove[EventObject[event]] removes handler from event"
-  },  
-  {
-    "label":"InputField",
-    "type":"keyword",
-    "info":"InputField[\"default string\"] creates an input form"
-  },    
-
-  
 	{
 		"label":"ECcaEC",
 		"type":"text",
