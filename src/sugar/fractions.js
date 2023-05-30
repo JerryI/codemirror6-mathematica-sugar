@@ -79,6 +79,8 @@ class Widget extends WidgetType {
     let span = document.createElement("span");
     span.classList.add('fraction');
 
+    //console.log(this.visibleValue.args);
+
     if (this.visibleValue.args.length !== 2) {
       this.visibleValue.args = ["_", "_"];
       console.error("argumets doesnt match");

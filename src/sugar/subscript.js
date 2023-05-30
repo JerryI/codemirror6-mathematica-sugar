@@ -66,6 +66,7 @@ class Widget extends WidgetType {
     super();
     this.view = view;
     this.visibleValue = visibleValue;
+    this.visibleValue.args = [this.visibleValue.args[0], this.visibleValue.args.slice(1).join(',')];
     this.ref = ref;
     this.subEditor = subEditor;
   }
@@ -81,10 +82,13 @@ class Widget extends WidgetType {
   toDOM(view) {
     let span = document.createElement("span");
 
-    if (this.visibleValue.args.length !== 2) {
+    if (this.visibleValue.args.length != 2) {
       this.visibleValue.args = ["_", "_"];
       console.error("argumets doesnt match");
     }
+
+    //join if more than 2 arguments
+    
 
     //console.log('create widget DOM!!!!');
     //console.log(this.visibleValue);

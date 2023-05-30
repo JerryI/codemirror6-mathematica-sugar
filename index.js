@@ -64,6 +64,8 @@ CM6Sqrt[CM6Fraction[Table[RandomInteger[5], {i,1,5}], 2]]
 {0,CM6Sqrt[2],CM6Sqrt[CM6Fraction[3, 2]],CM6Sqrt[CM6Fraction[5, 2]],1}
 
 (CM6Grid[{{0, 1}, {1, 0}}, RowSpacings -> 1, ColumnSpacings -> 1, RowAlignments -> Baseline, ColumnAlignments -> Center])
+
+CM6Subscript[x, 3,8]
 `;
 
 
